@@ -14,7 +14,11 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/samsung/a52q
+DEVICE_PATH := device/samsung/a71
+
+ALLOW_MISSING_DEPENDENCIES := true
+
+BOARD_RAMDISK_USE_LZMA := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := false
@@ -50,14 +54,14 @@ ENABLE_SCHEDBOOST := true
 TARGET_USES_UEFI := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := a52q
+TARGET_OTA_ASSERT_DEVICE := a71
 
 # Kernel: Base flags
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=1 androidboot.usbcontroller=a600000.dwc3 printk.devkmsg=on firmware_class.path=/vendor/firmware_mnt/image
 BOARD_BOOTIMG_HEADER_VERSION := 2
 
 # Kernel: Board (kernel...) flags
-BOARD_NAME               := SRPTH31C001
+BOARD_NAME               := SRPSL10B002
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_RAMDISK_OFFSET     := 0x02000000
@@ -84,10 +88,10 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 
 # Platform: Bootloader
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := atoll
+TARGET_BOOTLOADER_BOARD_NAME := sm6150
 
 # Platform: Board
-TARGET_BOARD_PLATFORM := atoll
+TARGET_BOARD_PLATFORM := sm6150
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
 QCOM_BOARD_PLATFORMS += $(TARGET_BOARD_PLATFORM)
 
@@ -109,13 +113,13 @@ TARGET_USES_MKE2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Extras
-BOARD_ROOT_EXTRA_FOLDERS := persist efs sec_efs firmware
+BOARD_ROOT_EXTRA_FOLDERS := persist efs sec_efs firmware metadata
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Partition: Size
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 81788928
-BOARD_BOOTIMAGE_PARTITION_SIZE     := 100663296
-BOARD_DTBOIMAGE_PARTITION_SIZE     := 25165824
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 82726912
+BOARD_BOOTIMAGE_PARTITION_SIZE     := 67108864
+BOARD_DTBOIMAGE_PARTITION_SIZE     := 10485760
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
@@ -126,23 +130,24 @@ LZMA_RAMDISK_TARGETS := recovery
 
 # Partitions
 BOARD_SUPER_PARTITION_GROUPS := main
-BOARD_SUPER_PARTITION_SIZE := 7730906700
-BOARD_MAIN_SIZE := 7730906700
+BOARD_SUPER_PARTITION_SIZE := 8053063680
+BOARD_MAIN_SIZE := 8053063680
 BOARD_MAIN_PARTITION_LIST := system odm vendor product
 
 # TWRP Configuration: Basic config
+TW_DEVICE_VERSION := Skywalker
 TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
+TW_EXTRA_LANGUAGES := false
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_NTFS_3G := false
 TW_NO_EXFAT_FUSE := true
-TW_Y_OFFSET := 142
-TW_H_OFFSET := -142
+TW_Y_OFFSET := 110
+TW_H_OFFSET := -110
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
 TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
 TW_INCLUDE_RESETPROP := true
@@ -150,8 +155,8 @@ TW_INCLUDE_RESETPROP := true
 # TWRP Configuration: Brightness/CPU
 TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone17/temp
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
-TW_MAX_BRIGHTNESS := 486
-TW_DEFAULT_BRIGHTNESS := 219
+TW_MAX_BRIGHTNESS := 425
+TW_DEFAULT_BRIGHTNESS := 200
 
 # TWRP Configuration: Logd
 TWRP_INCLUDE_LOGCAT := true
@@ -159,3 +164,6 @@ TARGET_USES_LOGD := true
 
 # Backups
 TW_BACKUP_EXCLUSIONS := /data/fonts
+
+# Display
+TW_NO_SCREEN_BLANK := true
