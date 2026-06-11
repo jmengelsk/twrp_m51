@@ -56,6 +56,9 @@ TARGET_USES_UEFI := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := a71
 
+# SEpolicy
+BOARD_RECOVERY_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
+
 # Kernel: Base flags
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=1 androidboot.usbcontroller=a600000.dwc3 printk.devkmsg=on firmware_class.path=/vendor/firmware_mnt/image
 BOARD_BOOTIMG_HEADER_VERSION := 2

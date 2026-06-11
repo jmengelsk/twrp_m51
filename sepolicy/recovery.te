@@ -1,0 +1,44 @@
+# KeyMint & Keystore
+allow recovery keystore_compat_hal_service:service_manager { add find };
+allow recovery keystore_service:service_manager { add find };
+
+# binder
+allow recovery servicemanager:binder { call transfer };
+allow recovery keystore:binder { call transfer };
+allow recovery self:binder { call transfer };
+
+# encrypted metadata
+allow recovery vold_metadata_file:dir { search read open getattr };
+allow recovery vold_metadata_file:file { read open getattr };
+
+# Keystore and Vold
+allow recovery keystore_crash_prop:file { getattr open read map };
+allow recovery keystore_crash_prop:property_service set;
+
+# resetprop
+allow recovery vendor_default_prop:property_service set;
+
+# vold
+allow keystore vold_metadata_file:dir { search read open };
+allow keystore vold_metadata_file:file { read open getattr };
+
+# kernel keyring
+allow recovery kernel:key { search setattr };
+
+# logd
+allow logd rootfs:file { getattr read map execute entrypoint };
+allow logd rootfs:dir read;
+allow recovery kmsg_device:chr_file write;
+
+# sysfs
+allow recovery configfs:file getattr;
+allow recovery sysfs:file { getattr open write };
+
+# create /dev/block/by-name symlinks
+allow recovery block_device:dir { write add_name };
+allow recovery dm_device:blk_file ioctl;
+
+# rootfs
+allow recovery rootfs:dir { write add_name };
+allow recovery rootfs:lnk_file create;
+allow recovery rootfs:dir create;
