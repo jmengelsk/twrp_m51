@@ -29,7 +29,6 @@ import /init.recovery.qcom_decrypt.rc
 
 on init
     setprop prepdecrypt.loglevel 2
-    setprop prepdecrypt.setpatch true
 
     start health-hal-2-1
 
