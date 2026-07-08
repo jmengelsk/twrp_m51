@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/samsung/a71
+DEVICE_PATH := device/samsung/m51
 
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -54,7 +54,7 @@ ENABLE_SCHEDBOOST := true
 TARGET_USES_UEFI := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := a71
+TARGET_OTA_ASSERT_DEVICE := m51
 
 # SEpolicy
 BOARD_RECOVERY_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
