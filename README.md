@@ -5,7 +5,7 @@ This was tested and it's fully compatible with [minimal manifest twrp](https://g
 1. Set up the build environment following instructions from [here](https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp/blob/twrp-11/README.md#getting-started)
 2. Clone device tree:
 ```bash
-git clone -b android-12.1 https://github.com/Simon1511/twrp_device_samsung_M51q.git device/samsung/M51q
+git clone -b android-12.1 https://github.com/jmengelsk/twrp_m51.git device/samsung/m51
 ```
 3. To build:
 ```bash
@@ -18,4 +18,4 @@ export ALLOW_MISSING_DEPENDENCIES=true && . build/envsetup.sh && lunch twrp_M51q
 * hendramanu
 
 ### Links
-* [Kernel source](https://github.com/Simon1511/android_kernel_samsung_sm7125/tree/twrp)
+* [Kernel source](https://github.com/jmengelsk/android_kernel_samsung_sm7125/tree/twrp)
