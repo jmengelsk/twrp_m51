@@ -1,5 +1,5 @@
 # Device release name
-ro.display.series=Samsung Galaxy A71
+ro.display.series=Samsung Galaxy M51
 
 # product/board stuff
 ro.product.board=sm6150
